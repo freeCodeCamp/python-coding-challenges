@@ -1,0 +1,24 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+#preview-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.red {
+  background-color: palevioletred;
+}
+
+.green {
+  background-color: palegreen;
+}
+
+.blue {
+  background-color: paleturquoise;
+}

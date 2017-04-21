@@ -1,0 +1,29 @@
+{
+  "name": "hour-of-code",
+  "version": "1.0.0",
+  "description": "FCC Hour of Code",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/codemirror": "0.0.35",
+    "@types/lodash": "^4.14.41",
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1",
+    "typescript": "^2.0.10"
+  },
+  "scripts": {
+    "start": "gulp serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreeCodeCamp/hour-of-code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FreeCodeCamp/hour-of-code/issues"
+  },
+  "homepage": "https://github.com/FreeCodeCamp/hour-of-code#readme"
+}
