@@ -1,15 +1,11 @@
 {
-  "name": "hour-of-code",
+  "name": "python-coding-challenges",
   "version": "1.0.0",
-  "description": "FCC Hour of Code",
+  "description": "FCC Python Curriculum",
   "main": "index.html",
-  "dependencies": {},
   "devDependencies": {
-    "@types/codemirror": "0.0.35",
-    "@types/lodash": "^4.14.41",
     "browser-sync": "^2.18.2",
-    "gulp": "^3.9.1",
-    "typescript": "^2.0.10"
+    "gulp": "^3.9.1"
   },
   "scripts": {
     "start": "gulp serve",
@@ -17,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FreeCodeCamp/hour-of-code.git"
+    "url": "git+https://github.com/FreeCodeCamp/python-coding-challenges.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FreeCodeCamp/hour-of-code/issues"
+    "url": "https://github.com/FreeCodeCamp/python-coding-challenges/issues"
   },
-  "homepage": "https://github.com/FreeCodeCamp/hour-of-code#readme"
+  "homepage": "https://github.com/FreeCodeCamp/python-coding-challenges#readme"
 }

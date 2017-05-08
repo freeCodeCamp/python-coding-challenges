@@ -1,0 +1,33 @@
+{
+  "name": "Python Beginner Challenges",
+  "challenges": [
+    {
+      "title": "Python Challenge 1",
+      "instructions": [
+        "Welcome to freeCodeCamp python challenges.",
+        "We are glad you're here.",
+        "Keep coding!"
+      ],
+      "challengeText": [
+        "You're going to code something in Python.",
+        "Write <span class='inline-code'>print('Hello World!')</span> in the editor to the right."
+      ],
+      "repl": "https://repl.it/HlSr/1",
+      "completed": false
+    },
+    {
+      "title": "Python Challenge 2",
+      "instructions": [
+        "This is the next challenge.",
+        "Glad you made it here",
+        "Good job."
+      ],
+      "challengeText": [
+        "You're going to code something in Python.",
+        "Write <span class='inline-code'>print('!dlroW olleH')</span> in the editor to the right."
+      ],
+      "repl": "https://repl.it/Hl2S/1",
+      "completed": false
+    }
+  ]
+}
