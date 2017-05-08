@@ -4,41 +4,18 @@
 <head>
   <meta charset="utf-8">
   <link rel='shortcut icon' href='favicon.png' type='image/x-icon'>
-  <title>Hour of Code by Free Code Camp</title>
+  <title>Python Curriculum by Free Code Camp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="stylesheet.css">
   <link href="https://fonts.googleapis.com/css?family=Lato|Rock+Salt|Ubuntu+Mono" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-  <!-- CDN Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.min.js"></script>
-
-  <!-- Internal libaries -->
-  <!-- <script src="vendor/lib/codemirror.js"></script>
-  <script src="vendor/mode/xml/xml.js"></script>
-  <script src="vendor/mode/javascript/javascript.js"></script>
-  <script src="vendor/mode/css/css.js"></script>
-  <script src="vendor/mode/htmlmixed/htmlmixed.js"></script>
-  <script src="vendor/mode/python/python.js"></script> -->
-
-
   <!-- Page scripts -->
-  <script src="codemirror-update.js"></script>
   <script src="animate.js"></script>
-  <script src="challenges.js"></script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-55446531-1', 'auto');
-    ga('send', 'pageview');
-  </script>
 
 </head>
 
@@ -46,48 +23,28 @@
   <div class="navbar">
     <a href="http://freecodecamp.com" target="_blank"><img src="https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg" id="logo"></a>
     <span id="linkback"></span>
-    <a href="https://hourofcode.com/" target="_blank">
-      <div><span>Hour of Python</span> 2017</div>
+    <a href="#" target="_blank">
+      <div><span>Python Curriculum</span> 2017</div>
     </a>
   </div>
-
-  <div id="success-msg" class="hidden"></div>
-  <div id="fail-msg" class="hidden"></div>
 
   <div class="container">
 
     <div class="left">
       <h2 id="title"></h2>
-      <div class="instructions" id="instructions">
-
-      </div>
+      <div class="instructions" id="instructions"></div>
 
       <hr>
-      <!-- <div id="user-input">
-
-
-        <iframe frameborder="0" width="100%" height="600px" src="https://repl.it/student_embed/assignment/58501/777e66e4f454420140f3558053f823aa"></iframe>
-        <textarea id="code" name="code"></textarea>
-        <br>
-        <br>
-        <button class="btn" id="reset-button">Reset</button>
-      </div> -->
+      <div class="instructions" id="challengeText"></div>
     </div>
-    <div class="right">
-      <h2 id="title">Code Example</h2>
-      <div class="instructions2" id="instructions2">
 
-      </div>
-      <!-- <iframe id='previewed' frameborder="0" width="100%" height="500px" src="https://repl.it/HNuS/2?lite=true"></iframe> -->
-      <!-- <h2>Preview</h2>
-      <iframe id=preview></iframe>-->
-      <!-- <button class="btn" id="check-button">Check</button> -->
+    <div class="right">
+      <iframe id="repl" frameborder="0" width="100%" height="500px" src=""></iframe>
       <button id="next-button" class="btn">Next Challenge <i class="fa fa-arrow-right bounce"></i></button>
     </div>
 
   </div>
 
-
-
+  <script src="load-challenges.js"></script>
 </body>
 </html>
