@@ -5,6 +5,7 @@
   "main": "index.html",
   "devDependencies": {
     "browser-sync": "^2.18.2",
+    "connect-modrewrite": "^0.10.1",
     "gulp": "^3.9.1"
   },
   "scripts": {

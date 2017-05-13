@@ -1,12 +1,18 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
+var modRewrite = require('connect-modrewrite');
 var reload = browserSync.reload;
 
 // Starts a local server in the base directory
 gulp.task('serve', function() {
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./",
+            middleware: [
+              modRewrite([
+                '!\\.\\w+$ /index.html [L]'
+              ])
+            ]
         }
     });
 

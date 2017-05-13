@@ -58,19 +58,26 @@ h2 {
 
 .btn {
   border-radius: 10px;
-  margin-top: 25px;
+  margin-top: 5px;
   height: 75px;
   background-color: #006400;
   border: none;
   font-family: Lato;
   font-size: 2em;
   color: white;
+  padding-left: 20px;
+  padding-right: 20px;
   transition: background-color 0.2s;
 }
 
 .btn:hover {
   cursor: pointer;
   background-color: #024e02;
+}
+
+.btn.disabled {
+  cursor: not-allowed;
+  background-color: #E0E0E0;
 }
 
 .navbar {
@@ -90,38 +97,38 @@ h2 {
 
 .container {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 15px;
   min-width: 900px;
   box-sizing: content-box;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   max-width: 90vw;
   width: 1200px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   height:100%;
 }
 
-.left {
-  max-width: 400px;
-  width:50%;
-  margin-right: 50px;
-  height: 80%;
+.top {
   display: flex;
-  flex-direction: column;
-}
-
-.right {
-
-  min-width: 600px;
+  flex-direction: row;
   flex-grow: 1;
-  min-height: 80%;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.bottom {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: auto;
+  width: 100%;
 }
 
-#next-button {
+/*#next-button {
   position: relative;
 
   bottom: 20px;
@@ -133,7 +140,7 @@ h2 {
 .fa-arrow-right {
   position: relative;
   left: 30px;
-}
+}*/
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
