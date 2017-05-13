@@ -2,31 +2,27 @@
   "name": "Python Beginner Challenges",
   "challenges": [
     {
-      "title": "Python Challenge 1",
-      "instructions": [
-        "Welcome to freeCodeCamp python challenges.",
-        "We are glad you're here.",
-        "Keep coding!"
-      ],
-      "challengeText": [
-        "You're going to code something in Python.",
-        "Write <span class='inline-code'>print('Hello World!')</span> in the editor to the right."
-      ],
-      "repl": "https://repl.it/HlSr/1",
+      "id": "a",
+      "title": "Addition",
+      "repl": "https://repl.it/student_embed/assignment/136138/81542db8f9c1157a5a8741c702aa95bc",
       "completed": false
     },
     {
-      "title": "Python Challenge 2",
-      "instructions": [
-        "This is the next challenge.",
-        "Glad you made it here",
-        "Good job."
-      ],
-      "challengeText": [
-        "You're going to code something in Python.",
-        "Write <span class='inline-code'>print('!dlroW olleH')</span> in the editor to the right."
-      ],
-      "repl": "https://repl.it/Hl2S/1",
+      "id": "b",
+      "title": "Subtraction",
+      "repl": "https://repl.it/student_embed/assignment/136139/36ee9cc212ca5a2fe77d3acfb4748a1b",
+      "completed": false
+    },
+    {
+      "id": "c",
+      "title": "Dummy Lesson",
+      "repl": "https://repl.it/student_embed/assignment/136137/d860e0ad34862a709895f54706dcf9af",
+      "completed": false
+    },
+    {
+      "id": "d",
+      "title": "Really Long Title with tons of white space in it",
+      "repl": "https://repl.it/student_embed/assignment/106433/cd0e574d0bd1c6e03110fe501ace41be",
       "completed": false
     }
   ]

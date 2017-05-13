@@ -21,7 +21,7 @@
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
+
       ga('create', 'UA-55446531-1', 'auto');
       ga('require', 'displayfeatures');
       ga('send', 'pageview');
@@ -38,18 +38,33 @@
   </div>
 
   <div class="container">
-
-    <div class="left">
-      <h2 id="title"></h2>
-      <div class="instructions" id="instructions"></div>
-
-      <hr>
-      <div class="instructions" id="challengeText"></div>
+    <div class="top">
+      <iframe id="repl" frameborder="0" width="100%" height="auto" src=""></iframe>
+      <div id="complete" class="complete" hidden><h1>Congrats you finished!</h1></div>
     </div>
 
-    <div class="right">
-      <iframe id="repl" frameborder="0" width="100%" height="500px" src=""></iframe>
-      <button id="next-button" class="btn">Next Challenge <i class="fa fa-arrow-right bounce"></i></button>
+    <div class="bottom">
+
+      <button id="prev-button" class="btn">
+        <i class="fa fa-arrow-left"></i>
+        Previous Challenge
+      </button>
+
+      <button id="next-button" class="btn">
+        Next Challenge
+        <i class="fa fa-arrow-right"></i>
+      </button>
+
+      <button id="reset-button" class="btn" hidden>
+        Reset Challenges
+        <i class="fa fa-refresh"></i>
+      </button>
+
+      <button id="map-button" class="btn">
+        Map
+        <i class="fa fa-list"></i>
+      </button>
+
     </div>
 
   </div>

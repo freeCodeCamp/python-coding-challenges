@@ -1,115 +1,116 @@
 /*global $*/
+function completeChallenge(i) {
 
-const curriculumCompleteObject = {
-  "title": "Congrats!",
-  "instructions": ["You completed all of the challenges!"],
-  "challengeText": ["Good job!", "<span class='reset' onclick='resetChallenges()'>Reset Challenges</span>"],
-  "completed": false,
-  "repl": "https://repl.it/Hl1u/1"
-};
-
-function appendText(parentId, childrenList) {
-  $(parentId).html(null);
-  for (let t in childrenList) {
-    let textNode = "<p>" + childrenList[t] + "</p>";
-    $(parentId).append(textNode);
-  }
-}
-
-function loadChallenge(challengeObject) {
-
-  // get props from challenge
-  const { title, instructions, challengeText, repl } = challengeObject;
-
-  // title
-  $("#title").text(title);
-
-  // instructions
-  appendText("#instructions", instructions);
-
-  // challengeText
-  appendText("#challengeText", challengeText);
-
-  // repl
-  let replURL = repl + "?lite=true";
-  $("#repl").attr("src", replURL);
-}
-
-function completeChallenge(challengeTitle) {
-  // if the user has already completed just load the same object
-  if (challengeTitle === 'Congrats!') {
-    return curriculumCompleteObject;
-  }
-
-  // get localstorage challenge object
-  const challenges = JSON.parse(localStorage.getItem('fcc-python-challenges'));
-
-  // set completed variable of challenge object to true
-  let nextChallenge = {};
-  for ( var i in challenges ) {
-    i = parseInt(i);
-    if ( challengeTitle === challenges[i].title ) {
-      challenges[i].completed = true;
-      // if a next challenge exists return it, else curriculumCompleteObject
-      nextChallenge = i < challenges.length - 1 ? challenges[i + 1] : curriculumCompleteObject;
-      break;
-    }
-  }
-
-  localStorage.setItem('fcc-python-challenges', JSON.stringify(challenges));
-  // return next challenge
-  return nextChallenge;
-}
-
-function loadNextChallenge() {
   // get localStorage challenge object
   const challenges = JSON.parse(localStorage.getItem('fcc-python-challenges'));
 
-  let challengeLoaded = false;
-  for ( let i in challenges) {
-    // loop through list for the first uncompleted challenge
-    if ( !challenges[i].completed) {
-      // load it to the page
-      loadChallenge(challenges[i]);
-      challengeLoaded = true;
-      break;
-    }
-  }
-  // if all challenges are complete load the curriculumCompleteObject
-  if ( !challengeLoaded ) {
-    loadChallenge(curriculumCompleteObject);
+  // set completed variable of challenge object to true
+  challenges[i].completed = true;
+
+  // set localStorage challenge object
+  localStorage.setItem('fcc-python-challenges', JSON.stringify(challenges));
+
+  return challenges;
+}
+
+function updateURL(rawString) {
+  let s = rawString.toLowerCase();
+  s = s.replace(/\s/g, '-');
+  window.history.replaceState(null, null, s);
+}
+
+function courseComplete() {
+  updateURL('course complete');
+  $("#next-button, #repl").hide();
+  $("#reset-button, #complete").show();
+}
+
+function loadChallenge(challenges, i) {
+  //clean click events
+  $("#prev-button").off("click");
+  $("#next-button").off("click");
+
+  // add previous challenge to prev-button
+  if ( i === 0 ) {
+    $("#prev-button").toggleClass("disabled", true).attr("disabled", true);
+
+  } else {
+    $("#prev-button").toggleClass("disabled", false).click(() => {
+      $("#next-button, #repl").show();
+      $("#reset-button, #complete").hide();
+      loadChallenge(challenges, i - 1)
+    }).attr("disabled", false);
   }
 
+  // add next challenge to next-button
+  $("#next-button").click(() => {
+    // passes it to completeChallenge method
+    challenges = completeChallenge(i);
+
+    if ( i === challenges.length - 1) {
+      courseComplete();
+    } else {
+
+      //due to the recursion, click events pile up and cause bugs
+      //this line keeps the next-button click event correct
+      $(this).off("click", "**");
+
+      // loads next challenge returned from completeChallenge method
+      loadChallenge(challenges, i + 1);
+    }
+  });
+
+  // add current challenge to page
+  $("#repl").attr("src", `${challenges[i].repl}?lite=true`);
+
+  //update pageurl
+  updateURL(challenges[i].title);
 }
 
 function resetChallenges() {
   // clear the localStorage challenge list
   localStorage.clear('fcc-python-challenges');
+
+  window.history.replaceState(null, null, '');
   // refresh the browser
   window.location.reload(true);
 }
 
-(() => {
-  // Add event handler for Next Challenge button
-  $("#next-button").click(() => {
-    // gets the current challenge on the page
-    const currentChallengeTitle = $("#title").text();
-    // passes it to completeChallenge method
-    const nextChallenge = completeChallenge(currentChallengeTitle);
-    // loads next challenge returned from completeChallenge method
-    loadChallenge(nextChallenge);
-  });
+function startLoadChallenge() {
+  const challenges = JSON.parse(localStorage.getItem('fcc-python-challenges'));
 
-  // Load the challenges json object
-  $.getJSON("./challenges.json", (data) => {
-    const challenges = data.challenges;
-
-    // check if it already exists in localStorage
-    if(!localStorage.getItem('fcc-python-challenges')) {
-      // if not set it
-      localStorage.setItem('fcc-python-challenges', JSON.stringify(challenges));
+  let foundIncomplete = false;
+  let i = 0;
+  while(!foundIncomplete && i < challenges.length) {
+    let c = challenges[i];
+    if ( !c.completed ) {
+      loadChallenge(challenges, i);
+      foundIncomplete = true;
+    } else {
+      i++
     }
-    // load the next uncompleted challenge
-    loadNextChallenge();
-  });
+  }
+
+  if ( !foundIncomplete ) {
+    courseComplete();
+  }
+}
+
+(() => {
+  if ( localStorage.getItem('fcc-python-challenges') ) {
+    startLoadChallenge();
+  } else {
+    $.getJSON("./challenges.json")
+      .done((data) => {
+        localStorage.setItem('fcc-python-challenges', JSON.stringify(data.challenges));
+        startLoadChallenge();
+      })
+      .fail((jqxhr, textStatus, error ) => {
+        console.log(`Req failed: ${textStatus}, ${error}`);
+      });
+  }
 })();
+
+$("#reset-button").click(() => {
+  resetChallenges();
+});
