@@ -1,14 +1,32 @@
 /*global $*/
+function getChallengeList() {
+  return JSON.parse(localStorage.getItem('fcc-python-challenges'));
+}
+function setChallengeList(challenges) {
+  localStorage.setItem('fcc-python-challenges', JSON.stringify(challenges));
+}
+
+function doShowRepl(showRepl) {
+  if (showRepl) {
+    $("#next-button, #repl").show();
+    $("#reset-button, #complete").hide();
+  } else {
+    $("#next-button, #repl").hide();
+    $("#reset-button, #complete").show();
+  }
+}
+
+function clearClickEvents(elements) {
+  $(elements).off("click");
+}
+
 function completeChallenge(i) {
-
   // get localStorage challenge object
-  const challenges = JSON.parse(localStorage.getItem('fcc-python-challenges'));
-
+  const challenges = getChallengeList();
   // set completed variable of challenge object to true
   challenges[i].completed = true;
-
   // set localStorage challenge object
-  localStorage.setItem('fcc-python-challenges', JSON.stringify(challenges));
+  setChallengeList(challenges);
 
   return challenges;
 }
@@ -19,45 +37,34 @@ function updateURL(rawString) {
   window.history.replaceState(null, null, s);
 }
 
-function courseComplete() {
+function courseComplete(challenges, i) {
   updateURL('course complete');
-  $("#next-button, #repl").hide();
-  $("#reset-button, #complete").show();
+  $("#prev-button").click(() => {
+    doShowRepl(true);
+    loadChallenge(challenges, i);
+  }).toggleClass("disabled", false).attr("disabled", false);
+  doShowRepl(false);
 }
 
 function loadChallenge(challenges, i) {
   //clean click events
-  $("#prev-button").off("click");
-  $("#next-button").off("click");
+  clearClickEvents("#next-button, #prev-button");
 
   // add previous challenge to prev-button
-  if ( i === 0 ) {
-    $("#prev-button").toggleClass("disabled", true).attr("disabled", true);
-
-  } else {
-    $("#prev-button").toggleClass("disabled", false).click(() => {
-      $("#next-button, #repl").show();
-      $("#reset-button, #complete").hide();
-      loadChallenge(challenges, i - 1)
-    }).attr("disabled", false);
+  if ( i === 0 ) $("#prev-button").toggleClass("disabled", true).attr("disabled", true);
+  else {
+    $("#prev-button").click(() => {
+      doShowRepl(true);
+      loadChallenge(challenges, i - 1);
+    }).toggleClass("disabled", false).attr("disabled", false);
   }
 
   // add next challenge to next-button
   $("#next-button").click(() => {
-    // passes it to completeChallenge method
     challenges = completeChallenge(i);
-
-    if ( i === challenges.length - 1) {
-      courseComplete();
-    } else {
-
-      //due to the recursion, click events pile up and cause bugs
-      //this line keeps the next-button click event correct
-      $(this).off("click", "**");
-
-      // loads next challenge returned from completeChallenge method
-      loadChallenge(challenges, i + 1);
-    }
+    const l = challenges.length;
+    if ( i === l - 1) courseComplete(challenges, l - 1);
+    else loadChallenge(challenges, i + 1);
   });
 
   // add current challenge to page
@@ -70,14 +77,14 @@ function loadChallenge(challenges, i) {
 function resetChallenges() {
   // clear the localStorage challenge list
   localStorage.clear('fcc-python-challenges');
-
+  // clear the url
   window.history.replaceState(null, null, '');
   // refresh the browser
   window.location.reload(true);
 }
 
 function startLoadChallenge() {
-  const challenges = JSON.parse(localStorage.getItem('fcc-python-challenges'));
+  const challenges = getChallengeList();
 
   let foundIncomplete = false;
   let i = 0;
@@ -91,9 +98,7 @@ function startLoadChallenge() {
     }
   }
 
-  if ( !foundIncomplete ) {
-    courseComplete();
-  }
+  if ( !foundIncomplete ) courseComplete(challenges, challenges.length - 1);
 }
 
 (() => {
@@ -101,8 +106,8 @@ function startLoadChallenge() {
     startLoadChallenge();
   } else {
     $.getJSON("./challenges.json")
-      .done((data) => {
-        localStorage.setItem('fcc-python-challenges', JSON.stringify(data.challenges));
+      .done(({challenges}) => {
+        setChallengeList(challenges);
         startLoadChallenge();
       })
       .fail((jqxhr, textStatus, error ) => {
