@@ -1,7 +1,7 @@
 ### Modify the code below ###
 
-total = 20 - 0
+product = 8 * 0
 
 ### Modify the code above ###
 
-print(total)
+print(product)

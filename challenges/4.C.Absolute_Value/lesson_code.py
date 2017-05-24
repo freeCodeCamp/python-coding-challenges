@@ -1,7 +1,7 @@
 ### Modify the code below ###
 
-total = 20 - 0
+absolute_value = -42
 
 ### Modify the code above ###
 
-print(total)
+print(absolute_value)

@@ -1,7 +1,7 @@
 ### Modify the code below ###
 
-total = 20 - 0
+quotient = 5 // 5
 
 ### Modify the code above ###
 
-print(total)
+print(quotient)
