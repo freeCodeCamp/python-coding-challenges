@@ -172,3 +172,46 @@ h2 {
   cursor: pointer;
   text-decoration: underline;
 }
+
+.map {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #eee;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.map a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.map a:hover, .offcanvas a:focus {
+  color: #006400;
+}
+
+.map .close-map {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .map {padding-top: 15px;}
+    .map a {font-size: 18px;}
+}
+
+.challenge-list {
+  border-top: 2px solid #006400;
+}
