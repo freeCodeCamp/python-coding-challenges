@@ -101,6 +101,16 @@ function startLoadChallenge() {
   if ( !foundIncomplete ) courseComplete(challenges, challenges.length - 1);
 }
 
+function loadChallengeFromMap(id) {
+  const challenges = getChallengeList();
+  for (const i in challenges) {
+    let c = challenges[i];
+    if ( c.id === id ) {
+      loadChallenge(challenges, i);
+    }
+  }
+}
+
 (() => {
   if ( localStorage.getItem('fcc-python-challenges') ) {
     startLoadChallenge();
