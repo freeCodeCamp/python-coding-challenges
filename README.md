@@ -1,4 +1,5 @@
 FreeCodeCamp Python Curriculum
+https://freecodecamp.github.io/python-coding-challenges
 =============
 
 To run locally:
