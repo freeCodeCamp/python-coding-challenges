@@ -8,5 +8,5 @@ class AdditionTests(unittest.TestCase):
         self.assertEqual(total, 20)
 
 # To run the tests from the console:
-# Make sure that you are in the 'addition' directory
+# Make sure that you are in the '4.1.Addition' directory
 # ⇒  python3 -m unittest lesson_tests
