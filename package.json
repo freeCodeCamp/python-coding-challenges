@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/FreeCodeCamp/python-coding-challenges/issues"
   },
-  "homepage": "https://github.com/FreeCodeCamp/python-coding-challenges#readme"
+  "homepage": "https://github.com/FreeCodeCamp/python-coding-challenges#readme",
+  "dependencies": {
+    "file-system": "^2.2.2"
+  }
 }
