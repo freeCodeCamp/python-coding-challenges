@@ -1,4 +1,7 @@
 /*global $*/
+function flatten(list) {
+  return list.reduce((a, b) => a.concat(b), []);
+}
 function getChallengeList() {
   return JSON.parse(localStorage.getItem('fcc-python-challenges'));
 }
@@ -110,14 +113,27 @@ function loadChallengeFromMap(id) {
     }
   }
 }
+function checkChallengeAuthenticity() {
+  const date = getChallengeList().last_edit;
+  let isAuthentic = false;
 
+  $.getJSON("./challenges.json")
+    .done(({last_edit}) => {
+      isAuthentic = date === last_edit;
+    })
+    .fail((jqxhr, textStatus, error ) => {
+      console.log(`Req failed: ${textStatus}, ${error}`);
+    });
+
+  return isAuthentic;
+}
 (() => {
-  if ( localStorage.getItem('fcc-python-challenges') ) {
+  if ( localStorage.getItem('fcc-python-challenges') && checkChallengeAuthenticity()) {
     startLoadChallenge();
   } else {
     $.getJSON("./challenges.json")
       .done(({challenges}) => {
-        setChallengeList(challenges);
+        setChallengeList(flatten(challenges));
         startLoadChallenge();
       })
       .fail((jqxhr, textStatus, error ) => {
