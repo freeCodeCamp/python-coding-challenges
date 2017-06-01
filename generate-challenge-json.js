@@ -53,8 +53,26 @@ dir_list.forEach((dir) => {
     "lesson": lesson_number
   };
 
+  // attempt to autofill 'missing' challenges
+  // 
+  // const blank_lesson_obj = {
+  //   "id": null,
+  //   "title": "NA",
+  //   "repl": default_repl,
+  //   "completed": false,
+  //   "chapter": null,
+  //   "lesson": null
+  // }
+
   if (!challenges_id_list.includes(id)) {
     let chapter = challenges_list[chapter_number];
+    // if ( lesson_number !== 1 && chapter.length < lesson_number ) {
+    //   for (let i = 1; i < lesson_number; i++ ) {
+    //     blank_lesson_obj.chapter = chapter_number;
+    //     blank_lesson_obj.lesson = i;
+    //     chapter.push(blank_lesson_obj);
+    //   }
+    // }
     let a = chapter.slice(0, lesson_number);
     let b = chapter.slice(lesson_number + 1, chapter.length);
     a.push(lesson_obj);
