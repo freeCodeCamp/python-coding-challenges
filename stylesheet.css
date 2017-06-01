@@ -215,3 +215,21 @@ h2 {
 .challenge-list {
   border-top: 2px solid #006400;
 }
+
+.chapter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.chapter-title {
+  color: #006400;
+  font-size: 1.5rem;
+  padding-left: 10px;
+}
+.lesson-list {
+  list-style: none;
+  align-self: left;
+  padding-left: 5px;
+  margin-top: 0;
+}
