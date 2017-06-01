@@ -16,16 +16,20 @@ Adding a new challenge or fixing an existing one?
   2. run `mongo`
   3. run `ObjectId()`
   4. copy string and paste into lesson_settings.json
-  
+
 - Building challenges.json file:
   1. Open your terminal
   2. Navigate to project directory
   3. run `node generate-challenge-settings.js`
   4. if no errors are thrown you're good to commit and open a pr
-  
+
 - Opening a PR
-  1. Include a reference to the issue 
+  1. Include a reference to the issue
   2. If its a new challenge, mention the chapter its being added to
   3. continue being awesome and helping us create this curriculum!
-  
-  
+
+
+Maintaining your Fork:
+  1. `git remote add upstream https://github.com/freeCodeCamp/python-coding-challenges.git`
+  2. `git checkout master`
+  3. `git pull upstream`
