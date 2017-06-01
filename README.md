@@ -20,7 +20,7 @@ Adding a new challenge or fixing an existing one?
 - Building challenges.json file:
   1. Open your terminal
   2. Navigate to project directory
-  3. run `node generate-challenge-settings.js`
+  3. run `node generate-challenge-json.js`
   4. if no errors are thrown you're good to commit and open a pr
 
 - Opening a PR
