@@ -54,7 +54,7 @@ dir_list.forEach((dir) => {
   };
 
   // attempt to autofill 'missing' challenges
-  // 
+  //
   // const blank_lesson_obj = {
   //   "id": null,
   //   "title": "NA",
