@@ -1,8 +1,7 @@
 import unittest
-import lesson_code
+from main import *
 
 class DivmodTests(unittest.TestCase):
     def test_main(self):
-        result = lesson_code.result
         self.assertIsInstance(result, tuple)
         self.assertEqual(result, (3, 2))

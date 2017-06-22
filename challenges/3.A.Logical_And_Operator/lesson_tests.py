@@ -1,6 +1,5 @@
 import unittest
-import lesson_code
-from lesson_code import boolean_and
+from main import *
 
 class BooleanAndOperatorTests(unittest.TestCase):
     def test_main(self):

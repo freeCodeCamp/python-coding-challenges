@@ -1,8 +1,7 @@
 import unittest
-import lesson_code
+from main import *
 
 class ExponentsTests(unittest.TestCase):
-    def test_main(self):
-        power = lesson_code.power 
+    def test_main(self): 
         self.assertIsInstance(power, int)
         self.assertEqual(power, 81)

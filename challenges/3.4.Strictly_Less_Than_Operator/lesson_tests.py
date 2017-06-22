@@ -1,5 +1,5 @@
 import unittest
-from lesson_code import strictly_less_than
+from main import *
 
 class StrictlyLessThanOperatorTests(unittest.TestCase):
     def test_main(self):
@@ -13,7 +13,7 @@ class StrictlyLessThanOperatorTests(unittest.TestCase):
         self.assertEqual(strictly_less_than(110), "100 or more")
 
     def test_operator_presence(self):
-        f = open('lesson_code.py')
+        f = open('main.py')
         lines = str(f.readlines())
         f.close()
         self.assertRegex(lines, '<', msg="The < operator is not in the function definition")

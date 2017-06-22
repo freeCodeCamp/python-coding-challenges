@@ -1,6 +1,5 @@
 import unittest
-import lesson_code
-from lesson_code import boolean_not
+from main import *
 
 class BooleanNotOperatorTests(unittest.TestCase):
     def test_main(self):

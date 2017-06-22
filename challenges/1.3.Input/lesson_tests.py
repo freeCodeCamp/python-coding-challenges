@@ -1,11 +1,8 @@
 import unittest
-import lesson_code
+from main import *
 
 class InputTests(unittest.TestCase):
     def test_main(self):
-        name = lesson_code.Name
-        age = lesson_code.Age
-
         self.assertIsInstance(name, str)
         self.assertIsInstance(age, str)
 # To run the tests from the console:
