@@ -1,8 +1,7 @@
 import unittest
-import lesson_code
+from main import *
 
 class AbsoluteValueTests(unittest.TestCase):
-    def test_main(self):
-        absolute_value = lesson_code.absolute_value 
+    def test_main(self): 
         self.assertIsInstance(absolute_value, int)
         self.assertEqual(absolute_value, 42)

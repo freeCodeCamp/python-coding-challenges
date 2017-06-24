@@ -1,5 +1,5 @@
 import unittest
-from inequality_operator_code import inequality
+from main import *
 
 class InEqualityOperatorTests(unittest.TestCase):
     def test_main(self):
@@ -9,7 +9,7 @@ class InEqualityOperatorTests(unittest.TestCase):
         self.assertNotEqual(inequality(13), 'Not Equal to 13')
 
     def test_operator_presence(self):
-        f = open('inequality_operator_code.py')
+        f = open('main.py')
         lines = str(f.readlines())
         f.close()
         self.assertRegex(lines, '!=', msg="The != operator is not in the function definition")

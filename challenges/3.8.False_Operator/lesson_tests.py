@@ -1,6 +1,5 @@
 import unittest
-import lesson_code
-from lesson_code import boolean_false
+from main import *
 
 class BooleanFalseKeywordTests(unittest.TestCase):
     def test_main(self):

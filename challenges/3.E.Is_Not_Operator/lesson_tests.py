@@ -1,5 +1,5 @@
 import unittest
-from lesson_code import negative_identity_test
+from main import *
 
 class NegativeIdentityOperatorTests(unittest.TestCase):
     def test_main(self):
