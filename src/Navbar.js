@@ -16,7 +16,6 @@ const Navbar = () => {
       <span id="linkback"></span>
       <a
         href="/"
-        target="_blank"
         rel="noopener noreferrer" >
         <div><span>Python Curriculum</span> 2017</div>
       </a>
