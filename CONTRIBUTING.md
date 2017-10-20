@@ -43,6 +43,7 @@ Find a mistake in an existing challenge?
 - Open a new issue titled: '[Fix Challenge] Challenge title'
 - Indicate whats wrong with the challenge
 - Propose what needs to be done to fix it if applicable
+- If you find any bug then propose the change or fix that bug and pull the request.
 
 # Thank you for contributing!
 We couldn't do this without you :heart:
