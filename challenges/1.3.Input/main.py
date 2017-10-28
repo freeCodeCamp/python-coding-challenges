@@ -1,12 +1,12 @@
 ### Modify the code below ###
 
 #Ask the user for their name!
-Name = ''
+name = ''
 
 #Ask the user for their age!
-Age = ''
+age = ''
 
-print(Name)
-print(Age)
+print(name)
+print(age)
 
 ### Modify the code above ###
