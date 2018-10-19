@@ -32,3 +32,15 @@ file=’’
 ```
 **_Instructions:_**
 **Put your name and sname to appropriate places, change '*' to parameters of separator '_' and in the end of the line '!'.**
+The print() function can be used with str.format() function
+```
+>>> print(“Hello World to {}".format("Geek"))
+Hello World to Geek
+>>> print(“{} Hello World to {}".format("Hello","Geek"))
+Hello World to Geek
+>>>a=2
+>>> print(“{} is the value of a".format(a))
+2 is  value of a
+```
+**_Instructions:_**
+**put your own name instead of geek and change the value of the variable to something else**
