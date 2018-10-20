@@ -1,11 +1,11 @@
 ### Modify the code below ###
 
-myName = null
+myName = None
 
-myAge = null
+myAge = None
 
-favoriteActivity = null
+favoriteActivity = None
 
-mySentence = null 
+mySentence = None
 
 ### Modify the code above ###
