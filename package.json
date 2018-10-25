@@ -11,6 +11,7 @@
     "react-scripts": "1.0.7"
   },
   "dependencies": {
+    "npm": "^6.4.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.1.1",
